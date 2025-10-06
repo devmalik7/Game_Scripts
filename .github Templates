@@ -1,0 +1,17 @@
+name: Game Idea
+about: Suggest a new game for the repository
+title: "[Game Idea] "
+labels: enhancement, good first issue, hacktoberfest
+body:
+  - type: input
+    attributes:
+      label: Game Name
+  - type: textarea
+    attributes:
+      label: Description
+  - type: input
+    attributes:
+      label: Preferred Language
+  - type: textarea
+    attributes:
+      label: Additional Details
