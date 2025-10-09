@@ -7,7 +7,8 @@ This repository is perfect for **Hacktoberfest 2025** contributors, beginners, a
 
 ## 🌟 About the Project
 
-**Game_Scripts** is a community-driven project by [@devmalik7](https://github.com/devmalik7).  
+**Game_Scripts** is a community-driven project by [@devmalik7](https://github.com/devmalik7).
+
 The goal is simple — learn, create, and share **fun little games** built using core programming concepts like loops, conditionals, randomization, and functions.
 
 Each game lives inside its own folder with a small **README**, making it easy to explore and learn from.
@@ -19,9 +20,11 @@ Each game lives inside its own folder with a small **README**, making it easy to
 ### 🪜 Step-by-step guide
 
 1️⃣ **Fork** this repository  
+
 2️⃣ **Clone** your fork   
+
    git clone https://github.com/<your-username>/Game_Scripts.git
-   cd Game_Scripts
+      cd Game_Scripts
 
 3️⃣ Create a new branch
    git checkout -b add-rock-paper-scissors
