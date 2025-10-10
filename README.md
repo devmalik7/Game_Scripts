@@ -1,3 +1,8 @@
+   <img src="https://socialify.git.ci/devmalik7/Game_Scripts/image?description=1&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Dark" alt="Game_Scripts" width="640" height="320" />
+
+
+
+
 # 🎮 Game_Scripts
 
 Welcome to **Game_Scripts** — an open-source collection of **mini games** written in multiple programming languages!  
