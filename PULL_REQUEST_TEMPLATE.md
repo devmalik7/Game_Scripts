@@ -1,8 +1,7 @@
 ## Game Details
-- Game Name: Treasure Hunt
+- Game Name: Whack-a-Mole
 - Language: Python
-- Description: A mini text-based adventure game where the player makes choices to find the hidden treasure.
-
+- Description: A fun mini GUI game where you click the mole (😈) as it appears on a 3x3 grid to score points. The game lasts 30 seconds.
 
 ## Checklist
 - [x] Game added in correct language folder
