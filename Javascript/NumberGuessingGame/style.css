@@ -1,0 +1,86 @@
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #4a4a4a;
+}
+
+p {
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.game-area {
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  width: 60%;
+  margin-right: 10px;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px;
+}
+
+#guessButton {
+  background-color: #4caf50;
+  color: white;
+}
+
+#guessButton:hover {
+  background-color: #45a049;
+}
+
+#resetButton {
+  background-color: #f44336;
+  color: white;
+}
+
+#resetButton:hover {
+  background-color: #da190b;
+}
+
+.hint {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  min-height: 30px;
+}
+
+.attempts {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
