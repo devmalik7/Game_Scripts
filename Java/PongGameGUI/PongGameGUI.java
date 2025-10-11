@@ -1,6 +1,6 @@
-package Java.PongGameGUI;
+
 /**
- * 🎮 Pong Game GUI    
+ * 🎮 Pong Game GUI
  *
  * A classic 2-player Pong game implemented using Java Swing.
  * Players control paddles to bounce the ball and score points.
