@@ -1,7 +1,7 @@
 ## Game Details
-- Game Name: Whack-a-Mole
+- Game Name: Snake Game
 - Language: Python
-- Description: A fun mini GUI game where you click the mole (😈) as it appears on a 3x3 grid to score points. The game lasts 30 seconds.
+- Description: A classic Snake Game built using Tkinter where players control the snake using arrow keys to eat food, grow longer, and avoid collisions with walls or themselves.
 
 ## Checklist
 - [x] Game added in correct language folder
