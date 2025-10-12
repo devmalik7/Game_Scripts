@@ -1,7 +1,9 @@
 ## Game Details
+add-maze_runner
 - **Game Name:** Maze Runner - Advanced
 - **Language:** Python
 - **Description:** A GUI maze game where the player navigates a randomly generated maze using arrow keys to reach the exit before the timer runs out. Walls are black, start is blue, exit is green.
+
 
 ## Checklist
 - [x] Game added in correct language folder
