@@ -1,7 +1,7 @@
 ## Game Details
-- Game Name: Snake Game
+- Game Name: Tic-Tac-Toe Game
 - Language: Python
-- Description: A classic Snake Game built using Tkinter where players control the snake using arrow keys to eat food, grow longer, and avoid collisions with walls or themselves.
+- Description: A classic Tic-Tac-Toe Game built using Tkinter.
 
 ## Checklist
 - [x] Game added in correct language folder
