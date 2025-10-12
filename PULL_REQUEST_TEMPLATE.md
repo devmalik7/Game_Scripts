@@ -1,7 +1,7 @@
 ## Game Details
-- Game Name: Snake Game
+- Game Name: Throw the Dart
 - Language: Python
-- Description: A classic Snake Game built using Tkinter where players control the snake using arrow keys to eat food, grow longer, and avoid collisions with walls or themselves.
+- Description: A fun mini GUI game where the player throws darts at a circular dartboard. Points are awarded based on how close the dart lands to the bullseye. Each player gets 5 darts per game.
 
 ## Checklist
 - [x] Game added in correct language folder
