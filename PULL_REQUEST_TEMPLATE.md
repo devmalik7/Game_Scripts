@@ -1,7 +1,7 @@
 ## Game Details
-- Game Name: Brick Breaker
-- Language: Python
-- Description: A classic mini GUI game where the player controls a paddle with the mouse to bounce a ball and break all the bricks. The game ends if the ball falls below the paddle.
+- **Game Name:** Maze Runner - Advanced
+- **Language:** Python
+- **Description:** A GUI maze game where the player navigates a randomly generated maze using arrow keys to reach the exit before the timer runs out. Walls are black, start is blue, exit is green.
 
 ## Checklist
 - [x] Game added in correct language folder
