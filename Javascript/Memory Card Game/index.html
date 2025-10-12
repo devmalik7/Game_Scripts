@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Card Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Welcome to Memory Card Game</h1>
+    <br />
+    <h2>Please Select Difficulty</h2>
+    <div class="buttons">
+      <button onclick="startGame('easy')">Easy (2x2)</button>
+      <button onclick="startGame('medium')">Medium (4x4)</button>
+      <button onclick="startGame('hard')">Hard (6x6)</button>
+    </div>
+
+    <script>
+      function startGame(level) {
+        localStorage.setItem("game-level", level);
+        window.location.href = "game.html";
+      }
+    </script>
+  </body>
+</html>
