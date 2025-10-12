@@ -1,5 +1,6 @@
 import random
 
+
 def scramble_word(word):
    return "".join(random.sample(word, len(word)))
 
@@ -18,6 +19,7 @@ while attempts > 0:
    else:
        attempts -= 1
        print(f"Wrong! {attempts} attempts left.")
+
 
 if attempts == 0:
    print(f"Game over! The correct word was {word}.")
