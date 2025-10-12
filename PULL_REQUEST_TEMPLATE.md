@@ -1,7 +1,7 @@
 ## Game Details
-- Game Name: Throw the Dart
+- Game Name: Brick Breaker
 - Language: Python
-- Description: A fun mini GUI game where the player throws darts at a circular dartboard. Points are awarded based on how close the dart lands to the bullseye. Each player gets 5 darts per game.
+- Description: A classic mini GUI game where the player controls a paddle with the mouse to bounce a ball and break all the bricks. The game ends if the ball falls below the paddle.
 
 ## Checklist
 - [x] Game added in correct language folder
