@@ -10,6 +10,7 @@ scrambled = scramble_word(word)
 
 print("Scrambled word:", scrambled)
 
+
 attempts = 3
 while attempts > 0:
    guess = input("Guess the word: ").lower()

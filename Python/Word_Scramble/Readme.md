@@ -1,6 +1,6 @@
 🔤 Word Scramble Game
 
-A fun and simple Python word puzzle game where you have to guess the original word from its scrambled version! This project is great for beginners who want to practice loops, conditionals, functions, and randomization in Python.
+A fun and simple Python word puzzle game where you have to guess the original word from its scrambled version!. This project is great for beginners who want to practice loops, conditionals, functions, and randomization in Python.
 
 
 🎮 Game Description
