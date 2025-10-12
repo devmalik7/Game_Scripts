@@ -30,6 +30,3 @@ A simple **Snake Game** implemented in Java using **Swing** and **AWT**. The gam
 5. The game ends when the snake collides with itself or the wall. Your score is displayed at the top.
 
 ---
-
-## Project Structure
-
