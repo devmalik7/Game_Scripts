@@ -2,7 +2,7 @@
 
 A simple **Snake Game** implemented in Java using **Swing** and **AWT**. The game allows the player to control a snake, eat food to grow longer, and avoid colliding with itself or the walls.
 
-![Snake Game Screenshot](screenshot.png) <!-- Optional: Add your game screenshot here -->
+
 
 ---
 
@@ -30,3 +30,4 @@ A simple **Snake Game** implemented in Java using **Swing** and **AWT**. The gam
 5. The game ends when the snake collides with itself or the wall. Your score is displayed at the top.
 
 ---
+
