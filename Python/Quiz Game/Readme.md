@@ -2,6 +2,7 @@
 
 A fun and interactive Python console quiz game that tests your knowledge and preferences about Python and AskPython! Perfect for beginners learning input handling, conditional statements, and basic logic building.
 
+
 📋 Features
 
 Asks the player if they’re ready to play.
