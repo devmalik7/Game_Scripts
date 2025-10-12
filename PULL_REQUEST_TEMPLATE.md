@@ -1,7 +1,9 @@
 ## Game Details
-- Game Name: Snake Game
-- Language: Python
-- Description: A classic Snake Game built using Tkinter where players control the snake using arrow keys to eat food, grow longer, and avoid collisions with walls or themselves.
+add-maze_runner
+- **Game Name:** Maze Runner - Advanced
+- **Language:** Python
+- **Description:** A GUI maze game where the player navigates a randomly generated maze using arrow keys to reach the exit before the timer runs out. Walls are black, start is blue, exit is green.
+
 
 ## Checklist
 - [x] Game added in correct language folder
