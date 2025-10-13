@@ -1,0 +1,130 @@
+:root {
+  --bg: #0f1724;
+  --glass: rgba(255, 255, 255, 0.04);
+  --accent: #60a5fa;
+  --muted: #9aa7b2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #071025 0%, #0b1626 100%);
+  color: #e6eef6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.app {
+  max-width: 720px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+header h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+.controls input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--glass);
+  color: inherit;
+  width: 220px;
+}
+
+.controls button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: #06243a;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.card {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.left { text-align: center; }
+.icon { width: 96px; height: 96px; margin: auto; }
+.temp { font-size: 36px; font-weight: 700; }
+.cond { font-size: 14px; color: var(--muted); }
+
+.details { flex: 1; }
+.row { display: flex; justify-content: space-between; }
+.meta { display: flex; gap: 12px; margin-top: 10px; }
+
+.meta .m {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 100px;
+  text-align: center;
+}
+
+.muted { color: var(--muted); font-size: 13px; }
+.small { font-size: 12px; }
+
+.loader {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.loader > i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.2));
+  animation: load 1.2s linear infinite;
+}
+
+@keyframes load {
+  0% { width: 0; }
+  50% { width: 60%; }
+  100% { width: 0; }
+}
+
+.error {
+  background: #4c1f1f;
+  color: #ffdede;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+@media (max-width: 560px) {
+  .controls { flex-direction: column; }
+  .controls input { width: 100%; }
+  .card { flex-direction: column; align-items: flex-start; }
+}
