@@ -43,4 +43,3 @@ if lives == 0:
     print("\n💀 You died! The word was:", word)
 else:
     print("\n🎉 Congratulations! You guessed the word:", word)
-    
