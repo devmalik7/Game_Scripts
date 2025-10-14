@@ -27,7 +27,6 @@ Library	Pygame
 IDE Recommendation	VS Code / PyCharm
 ⚙️ Installation & Running Instructions
 1️⃣ Clone the Repository
-git clone https://github.com/devmalik7/Game_Scripts.git
 cd Game_Scripts/Python/SnakeGame
 
 2️⃣ Install Dependencies
@@ -65,5 +64,6 @@ Add sound effects and background music
 Create a start menu (Play / Quit options)
 
 Add difficulty modes (Easy / Medium / Hard)
+
 
 Include high-score saving feature
