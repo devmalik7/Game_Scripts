@@ -2,15 +2,16 @@
 
 Welcome to Game_Scripts — an open-source collection of mini games!
 This index automatically tracks all games across different programming languages.
-Last updated: Thu Oct 16 01:59:59 AM IST 2025
+Last updated: Wed Oct 15 20:32:09 UTC 2025
 
 Tracked 21 games across 3 languages.
+
 ## 📚 Table of Contents
 - [Java](#java-games)
 - [Javascript](#javascript-games)
 - [Python](#python-games)
 
-## 🐍 Java Games
+## Java Games
 
 ### 🎯 [BrickBreakingGame](./Java/BrickBreakingGame/)
 A fun game built with core programming concepts
@@ -30,7 +31,7 @@ A fun game built with core programming concepts
 ### 🎯 [TicTacToe](./Java/TicTacToe/)
 The Number Guessing Game GUI is a simple and interactive game built using Java Swing.
 
-## 🐍 Javascript Games
+## Javascript Games
 
 ### 🎯 [Coin Toss Simulator](./Javascript/Coin Toss Simulator/)
 A simple and visually appealing coin flip simulator built using HTML, CSS, and JavaScript.
@@ -47,7 +48,7 @@ A fun game built with core programming concepts
 ### 🎯 [Stopwatch App](./Javascript/Stopwatch App/)
 A simple yet elegant web-based stopwatch application with start, stop, and reset functionality.
 
-## 🐍 Python Games
+## Python Games
 
 ### 🎯 [Brick_Breaker](./Python/Brick_Breaker/)
 - Language: Python
