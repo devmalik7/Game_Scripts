@@ -46,7 +46,7 @@ def get_game_description(game_path):
     return "A fun game built with core programming concepts"
 
 def scan_games():
-    languages = ['Python', 'java', 'javascript']
+    languages = ['Python', 'Java', 'Javascript']
     games = {}
     
     for lang in languages:
@@ -72,7 +72,9 @@ def generate_index(games):
     content.append("This index automatically tracks all games across different programming languages.")
     content.append(f"Last updated: {os.popen('date').read().strip() if os.name != 'nt' else 'N/A'}")
     content.append("")
-    
+    content.append(f"Tracked {sum(len(v) for v in games.values())} games across {len(games)} languages.")
+    content.append("")
+
     content.append("## 📚 Table of Contents")
     for lang in sorted(games.keys()):
         if games[lang]:
@@ -82,7 +84,7 @@ def generate_index(games):
     
     for lang in sorted(games.keys()):
         if games[lang]:
-            content.append(f"## 🐍 {lang.title()} Games")
+            content.append(f"## {lang.title()} Games")
             content.append("")
             
             for game in sorted(games[lang], key=lambda x: x['name'].lower()):
