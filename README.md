@@ -18,6 +18,8 @@ The goal is simple — learn, create, and share **fun little games** built using
 
 Each game lives inside its own folder with a small **README**, making it easy to explore and learn from.
 
+We also maintain an **INDEX** that auto-updates to include all games in the project.
+
 ---
 
 ## 🚀 Getting Started
