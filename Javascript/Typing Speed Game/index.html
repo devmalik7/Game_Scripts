@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Speed Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="welcomescreen">
+      <h1>Typing Speed Game</h1>
+      <p>Type the falling words before they reach the bottom.</p>
+      <p>Each correct word increases your score.</p>
+      <p>If a word hits the bottom, the game ends.</p>
+      <button id="startbtn">Start Game</button>
+    </div>
+
+    <div id="gamescreen" class="hidden">
+      <div id="gamecontainer">
+        <div id="wordscontainer"></div>
+      </div>
+
+      <input type="text" id="input" placeholder="Type here..." />
+
+      <div id="scoreboard">
+        <span>Score: <span id="score">0</span></span>
+        <span id="msg">Game On!</span>
+      </div>
+
+      <div id="buttons">
+        <button id="pausebtn">Pause</button>
+        <button id="restartbtn">Restart</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
