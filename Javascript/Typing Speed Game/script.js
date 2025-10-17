@@ -27,12 +27,71 @@ const startBtn = document.getElementById("startbtn");
 const pauseBtn = document.getElementById("pausebtn");
 const restartBtn = document.getElementById("restartbtn");
 
+const easyBtn = document.getElementById("easyBtn");
+const mediumBtn = document.getElementById("mediumBtn");
+const hardBtn = document.getElementById("hardBtn");
+
 let score = 0;
 let activeWords = [];
 let gameInterval;
 let spawnInterval;
 let paused = false;
 let running = false;
+let difficulty = "medium";
+let moveSpeed = 50;
+let spawnRate = 2000;
+let scorePerWord = 2; // default for medium
+
+// Difficulty setup (speed + spawn rate + points)
+function setDifficulty(level) {
+  difficulty = level;
+
+  switch (level) {
+    case "easy":
+      moveSpeed = 75; // slower falling
+      spawnRate = 2500; // fewer words
+      scorePerWord = 1;
+      break;
+    case "medium":
+      moveSpeed = 50;
+      spawnRate = 2000;
+      scorePerWord = 2;
+      break;
+    case "hard":
+      moveSpeed = 25; // faster falling
+      spawnRate = 1200; // more words
+      scorePerWord = 3;
+      break;
+  }
+
+  statusElement.textContent = `Difficulty: ${level.toUpperCase()}`;
+
+  // ✅ Restart intervals if game already running
+  if (running && !paused) {
+    clearInterval(gameInterval);
+    clearInterval(spawnInterval);
+    gameInterval = setInterval(moveWords, moveSpeed);
+    spawnInterval = setInterval(generateWord, spawnRate);
+  }
+
+  // ✅ Highlight selected button
+  highlightDifficulty(level);
+}
+
+// Highlight active difficulty button
+function highlightDifficulty(level) {
+  [easyBtn, mediumBtn, hardBtn].forEach((btn) =>
+    btn.classList.remove("active")
+  );
+  if (level === "easy") easyBtn.classList.add("active");
+  if (level === "medium") mediumBtn.classList.add("active");
+  if (level === "hard") hardBtn.classList.add("active");
+}
+
+// Difficulty buttons
+easyBtn.addEventListener("click", () => setDifficulty("easy"));
+mediumBtn.addEventListener("click", () => setDifficulty("medium"));
+hardBtn.addEventListener("click", () => setDifficulty("hard"));
 
 function generateWord() {
   if (!running || paused) return;
@@ -75,7 +134,7 @@ input.addEventListener("input", () => {
   const data = input.value.trim();
   activeWords.forEach((word, i) => {
     if (word.textContent === data) {
-      score++;
+      score += scorePerWord; // ✅ Add points based on difficulty
       scoreElement.textContent = score;
       wordsContainer.removeChild(word);
       activeWords.splice(i, 1);
@@ -102,8 +161,9 @@ function startGame() {
   paused = false;
   pauseBtn.textContent = "Pause";
 
-  gameInterval = setInterval(moveWords, 50);
-  spawnInterval = setInterval(generateWord, 2000);
+  // ✅ Use current difficulty settings
+  gameInterval = setInterval(moveWords, moveSpeed);
+  spawnInterval = setInterval(generateWord, spawnRate);
 }
 
 function pause() {
@@ -133,3 +193,5 @@ startBtn.addEventListener("click", () => {
 
 pauseBtn.addEventListener("click", pause);
 restartBtn.addEventListener("click", restart);
+
+highlightDifficulty("medium");
