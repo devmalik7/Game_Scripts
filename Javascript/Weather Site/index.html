@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Weather App</h1>
+      <div class="controls">
+        <input id="q" type="text" placeholder="Enter city name" value="London">
+        <button id="search">Search</button>
+      </div>
+    </header>
+
+    <section id="output">
+      <div class="card" id="card">
+        <div class="left">
+          <img src="" alt="weather icon" id="icon" class="icon">
+          <div class="temp" id="temp">--°C</div>
+          <div class="cond" id="condition">--</div>
+        </div>
+        <div class="details">
+          <div class="row">
+            <div>
+              <div class="muted">Location</div>
+              <div id="location" class="small">--</div>
+            </div>
+            <div>
+              <div class="muted">Local Time</div>
+              <div id="localtime" class="small">--</div>
+            </div>
+          </div>
+          <div class="meta">
+            <div class="m">
+              <div class="muted">Humidity</div>
+              <div id="humidity">--%</div>
+            </div>
+            <div class="m">
+              <div class="muted">Wind</div>
+              <div id="wind">-- kph</div>
+            </div>
+            <div class="m">
+              <div class="muted">Feels Like</div>
+              <div id="feelslike">--°C</div>
+            </div>
+          </div>
+          <div id="extra" class="small muted">Data from WeatherAPI.com</div>
+        </div>
+      </div>
+      <div id="loading" class="loader" style="display:none"><i></i></div>
+      <div id="error" style="display:none"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
