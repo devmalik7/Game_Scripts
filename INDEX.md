@@ -79,3 +79,6 @@ By now we have 2 numbers (variables), you and computer
 
 ### 🎯 [Whack_A_Mole](./Python/Whack_A_Mole/)
 - Language: Python
+
+### 🎯 [Rock–Paper–Scissors](python/rock_paper_scissors/)
+- Language: Python
