@@ -26,4 +26,4 @@ Displaying formatted output
 
 📚 Author
 
-Developed by RAMEEZ as a beginner Python project to improve interactive programming skills and logical thinking.
+Developed by RameezHiro as a beginner Python project to improve interactive programming skills and logical thinking.
