@@ -2,9 +2,9 @@
 
 Welcome to Game_Scripts — an open-source collection of mini games!
 This index automatically tracks all games across different programming languages.
-Last updated: Fri Oct 17 15:15:28 UTC 2025
+Last updated: Mon Oct 20 04:33:38 UTC 2025
 
-Tracked 26 games across 3 languages.
+Tracked 27 games across 3 languages.
 
 ## 📚 Table of Contents
 - [Java](#java-games)
@@ -15,6 +15,9 @@ Tracked 26 games across 3 languages.
 
 ### 🎯 [BrickBreakingGame](./Java/BrickBreakingGame/)
 A fun game built with core programming concepts
+
+### 🎯 [FlappyBird](./Java/FlappyBird/)
+FlappyBird Game
 
 ### 🎯 [Hangman](./Java/Hangman/)
 🎮 Hangman GUI Game
