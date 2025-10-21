@@ -2,9 +2,9 @@
 
 Welcome to Game_Scripts — an open-source collection of mini games!
 This index automatically tracks all games across different programming languages.
-Last updated: Wed Oct 15 20:32:09 UTC 2025
+Last updated: Tue Oct 21 19:40:09 UTC 2025
 
-Tracked 21 games across 3 languages.
+Tracked 27 games across 3 languages.
 
 ## 📚 Table of Contents
 - [Java](#java-games)
@@ -16,8 +16,14 @@ Tracked 21 games across 3 languages.
 ### 🎯 [BrickBreakingGame](./Java/BrickBreakingGame/)
 A fun game built with core programming concepts
 
+### 🎯 [FlappyBird](./Java/FlappyBird/)
+FlappyBird Game
+
 ### 🎯 [Hangman](./Java/Hangman/)
 🎮 Hangman GUI Game
+
+### 🎯 [LogGame](./Java/LogGame/)
+A simple Java Swing application that lets users create and manage a live log through an interactive GUI.
 
 ### 🎯 [MemoryCardGame(GUI)](./Java/MemoryCardGame(GUI)/)
 🎮 Memory Card Matching Game (GUI)
@@ -27,6 +33,9 @@ A fun game built with core programming concepts
 
 ### 🎯 [PongGameGUI](./Java/PongGameGUI/)
 🎮 Pong Game GUI
+
+### 🎯 [SnakeGame](./Java/SnakeGame/)
+Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
 
 ### 🎯 [TicTacToe](./Java/TicTacToe/)
 The Number Guessing Game GUI is a simple and interactive game built using Java Swing.
@@ -48,6 +57,12 @@ A fun game built with core programming concepts
 ### 🎯 [Stopwatch App](./Javascript/Stopwatch App/)
 A simple yet elegant web-based stopwatch application with start, stop, and reset functionality.
 
+### 🎯 [Typing Speed Game](./Javascript/Typing Speed Game/)
+🕹️ Typing Speed Game
+
+### 🎯 [Weather Site](./Javascript/Weather Site/)
+A fun game built with core programming concepts
+
 ## Python Games
 
 ### 🎯 [Brick_Breaker](./Python/Brick_Breaker/)
@@ -64,6 +79,9 @@ A fun game built with core programming concepts
 
 ### 🎯 [Snake_Game](./Python/Snake_Game/)
 - Language: Python
+
+### 🎯 [snake_game_pygame](./Python/snake_game_pygame/)
+🐍 Snake Game – Pygame Edition
 
 ### 🎯 [Snake_Water_Gun](./Python/Snake_Water_Gun/)
 By now we have 2 numbers (variables), you and computer
