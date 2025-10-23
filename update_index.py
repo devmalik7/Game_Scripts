@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-import os
-import re
+import os re
 from pathlib import Path
 
 def get_game_description(game_path):
