@@ -83,6 +83,9 @@ A fun game built with core programming concepts
 ### 🎯 [Snake_Water_Gun](./Python/Snake_Water_Gun/)
 By now we have 2 numbers (variables), you and computer
 
+### 🎯 [The_Hangman](./Python/The_Hangman/)
+- Language: Python
+
 ### 🎯 [Throw_Dart](./Python/Throw_Dart/)
 - Language: Python
 
