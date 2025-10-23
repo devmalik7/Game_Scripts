@@ -48,6 +48,9 @@ A responsive, difficulty-based memory card game built with HTML, CSS, and JavaSc
 ### 🎯 [NumberGuessingGame](./Javascript/NumberGuessingGame/)
 A simple web-based number guessing game built with HTML, CSS, and JavaScript.
 
+### 🎯 [Simple Platformer](./Javascript/SimplePlatformer/)
+A classic 2D platformer game with jumping, collision detection, and a win condition, built with HTML Canvas and vanilla JavaScript.
+
 ### 🎯 [Rock Paper Scissor](./Javascript/Rock Paper Scissor/)
 A fun game built with core programming concepts
 
