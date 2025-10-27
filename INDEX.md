@@ -2,9 +2,7 @@
 
 Welcome to Game_Scripts — an open-source collection of mini games!
 This index automatically tracks all games across different programming languages.
-Last updated: Fri Oct 17 14:33:32 UTC 2025
 
-Tracked 26 games across 3 languages.
 
 ## 📚 Table of Contents
 - [Java](#java-games)
@@ -15,6 +13,9 @@ Tracked 26 games across 3 languages.
 
 ### 🎯 [BrickBreakingGame](./Java/BrickBreakingGame/)
 A fun game built with core programming concepts
+
+### 🎯 [FlappyBird](./Java/FlappyBird/)
+FlappyBird Game
 
 ### 🎯 [Hangman](./Java/Hangman/)
 🎮 Hangman GUI Game
@@ -58,7 +59,6 @@ A fun game built with core programming concepts
 A simple yet elegant web-based stopwatch application with start, stop, and reset functionality.
 
 ### 🎯 [Typing Speed Game](./Javascript/Typing Speed Game/)
-A fast-paced browser game built with HTML, CSS, and JavaScript. Words fall from the top of the screen — type them before they hit the bottom! Designed to improve typing speed, accuracy, and reflexes.
 
 ### 🎯 [Weather Site](./Javascript/Weather Site/)
 A fun game built with core programming concepts
