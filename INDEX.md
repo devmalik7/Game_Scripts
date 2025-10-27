@@ -2,9 +2,7 @@
 
 Welcome to Game_Scripts — an open-source collection of mini games!
 This index automatically tracks all games across different programming languages.
-Last updated: Tue Oct 21 19:40:09 UTC 2025
 
-Tracked 27 games across 3 languages.
 
 ## 📚 Table of Contents
 - [Java](#java-games)
@@ -51,6 +49,9 @@ A responsive, difficulty-based memory card game built with HTML, CSS, and JavaSc
 ### 🎯 [NumberGuessingGame](./Javascript/NumberGuessingGame/)
 A simple web-based number guessing game built with HTML, CSS, and JavaScript.
 
+### 🎯 [Simple Platformer](./Javascript/SimplePlatformer/)
+A classic 2D platformer game with jumping, collision detection, and a win condition, built with HTML Canvas and vanilla JavaScript.
+
 ### 🎯 [Rock Paper Scissor](./Javascript/Rock Paper Scissor/)
 A fun game built with core programming concepts
 
@@ -58,7 +59,6 @@ A fun game built with core programming concepts
 A simple yet elegant web-based stopwatch application with start, stop, and reset functionality.
 
 ### 🎯 [Typing Speed Game](./Javascript/Typing Speed Game/)
-🕹️ Typing Speed Game
 
 ### 🎯 [Weather Site](./Javascript/Weather Site/)
 A fun game built with core programming concepts
@@ -86,6 +86,9 @@ A fun game built with core programming concepts
 ### 🎯 [Snake_Water_Gun](./Python/Snake_Water_Gun/)
 By now we have 2 numbers (variables), you and computer
 
+### 🎯 [The_Hangman](./Python/The_Hangman/)
+- Language: Python
+
 ### 🎯 [Throw_Dart](./Python/Throw_Dart/)
 - Language: Python
 
@@ -96,4 +99,7 @@ By now we have 2 numbers (variables), you and computer
 - Language: Python
 
 ### 🎯 [Whack_A_Mole](./Python/Whack_A_Mole/)
+- Language: Python
+
+### 🎯 [Rock–Paper–Scissors](python/rock_paper_scissors/)
 - Language: Python
