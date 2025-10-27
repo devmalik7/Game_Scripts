@@ -107,5 +107,5 @@ By now we have 2 numbers (variables), you and computer
 ### 🎯 [Typing_test](./Python/typing_speed_game/)
 - Language: Python
 
-### 🧮 [Math Rush (Addition Challenge)](./Python/math_rush/)
+### 🎯 [Math Rush (Addition Challenge)](./Python/math_rush/)
 - Language: Python
