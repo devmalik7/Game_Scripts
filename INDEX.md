@@ -109,3 +109,6 @@ By now we have 2 numbers (variables), you and computer
 
 ### 🎯 [Math Rush (Addition Challenge)](./Python/math_rush/)
 - Language: Python
+
+### 🎯 [Guess the number](./Python/Guess_the_number/)
+- Language: Python
