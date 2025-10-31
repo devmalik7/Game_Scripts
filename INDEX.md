@@ -112,3 +112,6 @@ By now we have 2 numbers (variables), you and computer
 
 ### 🎯 [Guess the number](./Python/Guess_the_number/)
 - Language: Python
+
+### 🎯 [Dungeon Escape](./Python/Dungeon_escape/)
+- Language: Python
