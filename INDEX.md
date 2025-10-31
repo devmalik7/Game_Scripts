@@ -115,3 +115,6 @@ By now we have 2 numbers (variables), you and computer
 
 ### 🎯 [Dungeon Escape](./Python/Dungeon_escape/)
 - Language: Python
+
+### 🎯 [Memory Flip](./Python/Memory_Flip/)
+- Language: Python
