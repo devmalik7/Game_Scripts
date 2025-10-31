@@ -2,7 +2,15 @@
  * 🎮 TicTacToeGUI.java
  *
  * A simple GUI-based Tic Tac Toe game in Java using Swing.
+ * Features:
+ * - Two-player mode (Player X and Player O)
+ * - Game board with 3x3 buttons
+ * - Detects Win, Draw, or ongoing game
+ * - Restart button to reset the game
  *
+ * Complexity:
+ * - Time: O(1) per move
+ * - Space: O(1)
  * New Feature:
  * ✅ Added scoreboard tracking X wins, O wins, and Draws across rounds
  *
