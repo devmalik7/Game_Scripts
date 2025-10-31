@@ -2,7 +2,6 @@
  * 🎮 TicTacToeGUI.java
  *
  * A simple GUI-based Tic Tac Toe game in Java using Swing.
- *
  * Features:
  * - Two-player mode (Player X and Player O)
  * - Game board with 3x3 buttons
@@ -12,9 +11,11 @@
  * Complexity:
  * - Time: O(1) per move
  * - Space: O(1)
+ * New Feature:
+ * ✅ Added scoreboard tracking X wins, O wins, and Draws across rounds
  *
  * Author: Pradyumn Pratap Singh (Strange)
- * For: Hacktoberfest / Mini Games in Java
+ * Enhanced by: Sakshi (Hacktoberfest Contribution)
  */
 
 import javax.swing.*;
@@ -25,23 +26,23 @@ public class TicTacToeGUI extends JFrame implements ActionListener {
 
     private JButton[][] buttons = new JButton[3][3];
     private boolean isXTurn = true;
-    private JLabel statusLabel;
+    private JLabel statusLabel, scoreLabel;
     private JButton restartButton;
+
+    private int xWins = 0, oWins = 0, draws = 0;
 
     public TicTacToeGUI() {
         setTitle("❌⭕ Tic Tac Toe Game");
-        setSize(400, 500);
+        setSize(400, 520);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout(10, 10));
 
-        // --- Title ---
         JLabel title = new JLabel("Tic Tac Toe", SwingConstants.CENTER);
         title.setFont(new Font("Segoe UI", Font.BOLD, 22));
         title.setForeground(new Color(30, 144, 255));
         add(title, BorderLayout.NORTH);
 
-        // --- Game Board ---
         JPanel boardPanel = new JPanel(new GridLayout(3, 3, 5, 5));
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -54,13 +55,19 @@ public class TicTacToeGUI extends JFrame implements ActionListener {
         }
         add(boardPanel, BorderLayout.CENTER);
 
-        // --- Bottom Panel (Status + Restart) ---
-        JPanel bottomPanel = new JPanel(new GridLayout(2,1));
+        JPanel bottomPanel = new JPanel(new GridLayout(3, 1));
         statusLabel = new JLabel("Player X's turn", SwingConstants.CENTER);
         statusLabel.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+
+        scoreLabel = new JLabel("Scoreboard → X: 0 | O: 0 | Draws: 0", SwingConstants.CENTER);
+        scoreLabel.setFont(new Font("Segoe UI", Font.ITALIC, 14));
+        scoreLabel.setForeground(new Color(80, 80, 80));
+
         restartButton = new JButton("Restart Game");
         restartButton.addActionListener(e -> resetGame());
+
         bottomPanel.add(statusLabel);
+        bottomPanel.add(scoreLabel);
         bottomPanel.add(restartButton);
 
         add(bottomPanel, BorderLayout.SOUTH);
@@ -72,25 +79,28 @@ public class TicTacToeGUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton clicked = (JButton) e.getSource();
-        if (!clicked.getText().equals("")) return; // Ignore if already clicked
+        if (!clicked.getText().equals("")) return;
 
         clicked.setText(isXTurn ? "X" : "O");
 
         if (checkWin()) {
+            if (isXTurn) xWins++; else oWins++;
             statusLabel.setText("🎉 Player " + (isXTurn ? "X" : "O") + " wins!");
             disableButtons();
         } else if (isBoardFull()) {
+            draws++;
             statusLabel.setText("🤝 It's a Draw!");
         } else {
             isXTurn = !isXTurn;
             statusLabel.setText("Player " + (isXTurn ? "X" : "O") + "'s turn");
         }
+
+        scoreLabel.setText("Scoreboard → X: " + xWins + " | O: " + oWins + " | Draws: " + draws);
     }
 
     private boolean checkWin() {
         String player = isXTurn ? "X" : "O";
 
-        // Check rows and columns
         for (int i = 0; i < 3; i++) {
             if (buttons[i][0].getText().equals(player) &&
                 buttons[i][1].getText().equals(player) &&
@@ -103,7 +113,6 @@ public class TicTacToeGUI extends JFrame implements ActionListener {
                 return true;
         }
 
-        // Check diagonals
         if (buttons[0][0].getText().equals(player) &&
             buttons[1][1].getText().equals(player) &&
             buttons[2][2].getText().equals(player))
@@ -118,11 +127,9 @@ public class TicTacToeGUI extends JFrame implements ActionListener {
     }
 
     private boolean isBoardFull() {
-        for (JButton[] row : buttons) {
-            for (JButton btn : row) {
+        for (JButton[] row : buttons)
+            for (JButton btn : row)
                 if (btn.getText().equals("")) return false;
-            }
-        }
         return true;
     }
 
