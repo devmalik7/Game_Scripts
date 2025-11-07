@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Runner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            padding: 20px;
+        }
+
+        .game-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #1a2a6c;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #1a2a6c;
+            font-size: 0.9rem;
+        }
+
+        .info-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #b21f1f;
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(15, 1fr);
+            grid-template-rows: repeat(15, 1fr);
+            gap: 2px;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: #333;
+            border: 4px solid #1a2a6c;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .cell {
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2px;
+            transition: background-color 0.2s;
+        }
+
+        .wall {
+            background-color: #1a2a6c;
+        }
+
+        .player {
+            background-color: #fdbb2d;
+            border-radius: 50%;
+            width: 80%;
+            height: 80%;
+            box-shadow: 0 0 8px rgba(253, 187, 45, 0.8);
+            position: relative;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(0.9); }
+            to { transform: scale(1.1); }
+        }
+
+        .exit {
+            background-color: #4CAF50;
+            border-radius: 50%;
+            width: 80%;
+            height: 80%;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 5px rgba(76, 175, 80, 0.8); }
+            to { box-shadow: 0 0 15px rgba(76, 175, 80, 1); }
+        }
+
+        .obstacle {
+            background-color: #b21f1f;
+            border-radius: 30%;
+            width: 80%;
+            height: 80%;
+            animation: shake 0.5s infinite alternate;
+        }
+
+        @keyframes shake {
+            from { transform: translateX(-2px); }
+            to { transform: translateX(2px); }
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: linear-gradient(to bottom, #1a2a6c, #0d1a4d);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to bottom, #23378a, #13215e);
+        }
+
+        button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .instructions {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions h3 {
+            color: #1a2a6c;
+            margin-bottom: 10px;
+        }
+
+        .instructions p {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .level-complete {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+
+        .level-complete.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .message-box {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .message-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .message-box p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .game-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Maze Runner</h1>
+        </header>
+        
+        <div class="game-info">
+            <div class="info-item">
+                <div class="info-label">LEVEL</div>
+                <div class="info-value" id="level">1</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">MOVES</div>
+                <div class="info-value" id="moves">0</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">TIME</div>
+                <div class="info-value" id="timer">00:00</div>
+            </div>
+        </div>
+        
+        <div class="game-board" id="maze"></div>
+        
+        <div class="controls">
+            <button id="reset">Reset Level</button>
+            <button id="prev-level">Previous Level</button>
+            <button id="next-level">Next Level</button>
+        </div>
+        
+        <div class="instructions">
+            <h3>How to Play</h3>
+            <p>Use the <strong>arrow keys</strong> to navigate the yellow player to the green exit.</p>
+            <p>Avoid the red obstacles and navigate through the maze walls.</p>
+            <p>Complete each level as quickly as possible with the fewest moves!</p>
+        </div>
+    </div>
+    
+    <div class="level-complete" id="levelComplete">
+        <div class="message-box">
+            <h2>Level Complete!</h2>
+            <p id="completionStats">You completed the level in 0 moves and 0:00!</p>
+            <button id="continue">Continue to Next Level</button>
+        </div>
+    </div>
+
+    <script>
+        // Game state
+        const gameState = {
+            level: 1,
+            moves: 0,
+            timer: 0,
+            timerInterval: null,
+            playerPosition: { x: 1, y: 1 },
+            exitPosition: { x: 13, y: 13 },
+            maze: [],
+            obstacles: [],
+            isGameActive: true
+        };
+
+        // Maze layouts for different levels
+        const mazeLayouts = [
+            // Level 1 - Simple maze
+            [
+                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,1,1,1,1,1,0,1,1,1,1,1,0,1],
+                [1,0,1,0,0,0,0,0,0,0,0,0,1,0,1],
+                [1,0,1,0,1,1,1,1,1,1,1,0,1,0,1],
+                [1,0,1,0,1,0,0,0,0,0,1,0,1,0,1],
+                [1,0,1,0,1,0,1,1,1,0,1,0,1,0,1],
+                [1,0,0,0,1,0,1,0,0,0,1,0,0,0,1],
+                [1,0,1,0,1,0,1,0,1,1,1,1,1,0,1],
+                [1,0,1,0,1,0,0,0,1,0,0,0,0,0,1],
+                [1,0,1,0,1,1,1,1,1,0,1,1,1,0,1],
+                [1,0,1,0,0,0,0,0,0,0,1,0,0,0,1],
+                [1,0,1,1,1,1,1,1,1,1,1,0,1,1,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+            ],
+            // Level 2 - More complex maze
+            [
+                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                [1,0,0,0,1,0,0,0,0,0,1,0,0,0,1],
+                [1,1,1,0,1,0,1,1,1,0,1,0,1,0,1],
+                [1,0,0,0,0,0,1,0,0,0,1,0,1,0,1],
+                [1,0,1,1,1,1,1,0,1,1,1,0,1,0,1],
+                [1,0,0,0,0,0,0,0,1,0,0,0,1,0,1],
+                [1,1,1,1,1,1,1,1,1,0,1,1,1,0,1],
+                [1,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
+                [1,0,1,1,1,1,1,1,1,1,1,0,1,1,1],
+                [1,0,1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,1,0,1,1,1,1,1,1,1,1,1,0,1],
+                [1,0,1,0,0,0,1,0,0,0,0,0,1,0,1],
+                [1,0,1,1,1,0,1,0,1,1,1,0,1,0,1],
+                [1,0,0,0,0,0,0,0,1,0,0,0,0,0,1],
+                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+            ],
+            // Level 3 - Even more complex
+            [
+                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                [1,0,0,0,0,0,1,0,0,0,0,0,0,0,1],
+                [1,0,1,1,1,0,1,0,1,1,1,1,1,0,1],
+                [1,0,1,0,0,0,1,0,0,0,0,0,1,0,1],
+                [1,0,1,0,1,1,1,1,1,1,1,0,1,0,1],
+                [1,0,1,0,0,0,0,0,0,0,1,0,1,0,1],
+                [1,0,1,1,1,1,1,1,1,0,1,0,1,0,1],
+                [1,0,0,0,0,0,0,0,1,0,1,0,1,0,1],
+                [1,1,1,1,1,1,1,0,1,0,1,0,1,0,1],
+                [1,0,0,0,0,0,0,0,1,0,0,0,1,0,1],
+                [1,0,1,1,1,1,1,1,1,1,1,1,1,0,1],
+                [1,0,1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,1,0,1,1,1,1,1,1,1,1,1,1,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+            ]
+        ];
+
+        // Obstacle positions for each level
+        const obstaclePositions = [
+            // Level 1 obstacles
+            [
+                { x: 3, y: 3 }, { x: 5, y: 5 }, { x: 7, y: 7 }, 
+                { x: 9, y: 9 }, { x: 11, y: 11 }
+            ],
+            // Level 2 obstacles
+            [
+                { x: 2, y: 2 }, { x: 4, y: 4 }, { x: 6, y: 6 }, 
+                { x: 8, y: 8 }, { x: 10, y: 10 }, { x: 12, y: 12 }
+            ],
+            // Level 3 obstacles
+            [
+                { x: 2, y: 3 }, { x: 4, y: 5 }, { x: 6, y: 7 }, 
+                { x: 8, y: 9 }, { x: 10, y: 11 }, { x: 12, y: 13 },
+                { x: 3, y: 12 }, { x: 5, y: 10 }, { x: 7, y: 8 }
+            ]
+        ];
+
+        // DOM Elements
+        const mazeElement = document.getElementById('maze');
+        const levelElement = document.getElementById('level');
+        const movesElement = document.getElementById('moves');
+        const timerElement = document.getElementById('timer');
+        const resetButton = document.getElementById('reset');
+        const prevLevelButton = document.getElementById('prev-level');
+        const nextLevelButton = document.getElementById('next-level');
+        const levelCompleteElement = document.getElementById('levelComplete');
+        const completionStatsElement = document.getElementById('completionStats');
+        const continueButton = document.getElementById('continue');
+
+        // Initialize the game
+        function initGame() {
+            loadLevel(gameState.level);
+            startTimer();
+            renderMaze();
+            
+            // Add event listeners
+            document.addEventListener('keydown', handleKeyPress);
+            resetButton.addEventListener('click', resetLevel);
+            prevLevelButton.addEventListener('click', previousLevel);
+            nextLevelButton.addEventListener('click', nextLevel);
+            continueButton.addEventListener('click', hideLevelComplete);
+        }
+
+        // Load a specific level
+        function loadLevel(level) {
+            gameState.level = level;
+            gameState.moves = 0;
+            gameState.timer = 0;
+            gameState.isGameActive = true;
+            
+            // Set player and exit positions based on level
+            if (level === 1) {
+                gameState.playerPosition = { x: 1, y: 1 };
+                gameState.exitPosition = { x: 13, y: 13 };
+            } else if (level === 2) {
+                gameState.playerPosition = { x: 1, y: 1 };
+                gameState.exitPosition = { x: 13, y: 13 };
+            } else if (level === 3) {
+                gameState.playerPosition = { x: 1, y: 1 };
+                gameState.exitPosition = { x: 13, y: 13 };
+            }
+            
+            // Load maze and obstacles
+            gameState.maze = JSON.parse(JSON.stringify(mazeLayouts[level - 1]));
+            gameState.obstacles = JSON.parse(JSON.stringify(obstaclePositions[level - 1]));
+            
+            // Update UI
+            levelElement.textContent = level;
+            movesElement.textContent = gameState.moves;
+            timerElement.textContent = formatTime(gameState.timer);
+            
+            // Reset timer
+            if (gameState.timerInterval) {
+                clearInterval(gameState.timerInterval);
+            }
+        }
+
+        // Render the maze
+        function renderMaze() {
+            mazeElement.innerHTML = '';
+            
+            for (let y = 0; y < 15; y++) {
+                for (let x = 0; x < 15; x++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+                    
+                    // Check if it's a wall
+                    if (gameState.maze[y][x] === 1) {
+                        cell.classList.add('wall');
+                    }
+                    
+                    // Check if it's the player
+                    if (x === gameState.playerPosition.x && y === gameState.playerPosition.y) {
+                        const player = document.createElement('div');
+                        player.className = 'player';
+                        cell.appendChild(player);
+                    }
+                    
+                    // Check if it's the exit
+                    if (x === gameState.exitPosition.x && y === gameState.exitPosition.y) {
+                        const exit = document.createElement('div');
+                        exit.className = 'exit';
+                        cell.appendChild(exit);
+                    }
+                    
+                    // Check if it's an obstacle
+                    const isObstacle = gameState.obstacles.some(obs => obs.x === x && obs.y === y);
+                    if (isObstacle) {
+                        const obstacle = document.createElement('div');
+                        obstacle.className = 'obstacle';
+                        cell.appendChild(obstacle);
+                    }
+                    
+                    mazeElement.appendChild(cell);
+                }
+            }
+        }
+
+        // Handle keyboard input
+        function handleKeyPress(e) {
+            if (!gameState.isGameActive) return;
+            
+            let newX = gameState.playerPosition.x;
+            let newY = gameState.playerPosition.y;
+            
+            switch(e.key) {
+                case 'ArrowUp':
+                    newY--;
+                    break;
+                case 'ArrowDown':
+                    newY++;
+                    break;
+                case 'ArrowLeft':
+                    newX--;
+                    break;
+                case 'ArrowRight':
+                    newX++;
+                    break;
+                default:
+                    return; // Ignore other keys
+            }
+            
+            // Check if move is valid
+            if (isValidMove(newX, newY)) {
+                // Update player position
+                gameState.playerPosition.x = newX;
+                gameState.playerPosition.y = newY;
+                gameState.moves++;
+                movesElement.textContent = gameState.moves;
+                
+                // Check if player reached the exit
+                if (newX === gameState.exitPosition.x && newY === gameState.exitPosition.y) {
+                    levelComplete();
+                }
+                
+                // Re-render the maze
+                renderMaze();
+            }
+        }
+
+        // Check if a move is valid
+        function isValidMove(x, y) {
+            // Check if out of bounds
+            if (x < 0 || x >= 15 || y < 0 || y >= 15) {
+                return false;
+            }
+            
+            // Check if it's a wall
+            if (gameState.maze[y][x] === 1) {
+                return false;
+            }
+            
+            // Check if it's an obstacle
+            const isObstacle = gameState.obstacles.some(obs => obs.x === x && obs.y === y);
+            if (isObstacle) {
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Start the timer
+        function startTimer() {
+            gameState.timerInterval = setInterval(() => {
+                if (gameState.isGameActive) {
+                    gameState.timer++;
+                    timerElement.textContent = formatTime(gameState.timer);
+                }
+            }, 1000);
+        }
+
+        // Format time as MM:SS
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Reset the current level
+        function resetLevel() {
+            loadLevel(gameState.level);
+            renderMaze();
+        }
+
+        // Go to the previous level
+        function previousLevel() {
+            if (gameState.level > 1) {
+                loadLevel(gameState.level - 1);
+                renderMaze();
+            }
+        }
+
+        // Go to the next level
+        function nextLevel() {
+            if (gameState.level < mazeLayouts.length) {
+                loadLevel(gameState.level + 1);
+                renderMaze();
+            }
+        }
+
+        // Handle level completion
+        function levelComplete() {
+            gameState.isGameActive = false;
+            clearInterval(gameState.timerInterval);
+            
+            // Update completion stats
+            completionStatsElement.textContent = 
+                `You completed the level in ${gameState.moves} moves and ${formatTime(gameState.timer)}!`;
+            
+            // Show level complete screen
+            levelCompleteElement.classList.add('active');
+        }
+
+        // Hide level complete screen
+        function hideLevelComplete() {
+            levelCompleteElement.classList.remove('active');
+            
+            // If there's a next level, load it
+            if (gameState.level < mazeLayouts.length) {
+                nextLevel();
+            } else {
+                // Game completed
+                alert('Congratulations! You completed all levels!');
+                loadLevel(1);
+            }
+        }
+
+        // Initialize the game when the page loads
+        window.addEventListener('load', initGame);
+    </script>
+</body>
+</html>
